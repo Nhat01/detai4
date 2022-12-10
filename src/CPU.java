@@ -1,31 +1,28 @@
-public class CPU {
-    protected String maCPU,xungNhip; 
-    protected double giaNhap;
+import java.util.Scanner;
+
+public class CPU extends ThietBi {
+    protected String xungNhip,hang; 
     protected int soCore,loaiCPU;
+
+    Scanner sc = new Scanner(System.in);
     
     public CPU() {
     }
 
-    public CPU(String maCPU, int loaiCPU) {
-        this.maCPU = maCPU;
+    public CPU(String maCPU, int loaiCPU, String hang) {
+        this.ma = maCPU;
         this.loaiCPU = loaiCPU;
+        this.hang = hang;
     }
 
     public String getMaCPU() {
-        return maCPU;
+        return ma;
     }
 
     public void setMaCPU(String maCPU) {
-        this.maCPU = maCPU;
+        this.ma = maCPU;
     }
-
-    // public String getLoaiCPU() {
-    //     return loaiCPU;
-    // }
-
-    // public void setLoaiCPU(String loaiCPU) {
-    //     this.loaiCPU = loaiCPU;
-    // }
+    
 
     public String getXungNhip() {
         return xungNhip;
@@ -36,11 +33,11 @@ public class CPU {
     }
 
     public double getGiaNhap() {
-        return giaNhap;
+        return gia;
     }
 
     public void setGiaNhap(double giaNhap) {
-        this.giaNhap = giaNhap;
+        this.gia = giaNhap;
     }
 
     public int getSoCore() {
@@ -51,8 +48,65 @@ public class CPU {
         this.soCore = soCore;
     }
 
-    public void xuatCPU() {
-        System.out.println("Ma CPU: " + maCPU);
-        System.out.println("Loai CPU: " + loaiCPU);
+    public int getLoaiCPU() {
+        return loaiCPU;
+    }
+
+    public void setLoaiCPU(int loaiCPU) {
+        this.loaiCPU = loaiCPU;
+    }
+    
+    public void nhap(int dong) {
+        switch(dong) {
+            case 1:
+                System.out.print("Loai CPU (1-loai Alpha, 2- loai Beta): ");
+                loaiCPU = sc.nextInt();
+                System.out.print("Nhap ma CPU: ");
+                sc.nextLine();
+                ma = sc.nextLine();
+                gia = 200;
+                soCore = 2;
+                xungNhip = "1.8 GHz";
+                hang = "Black";
+                break;
+            case 2:
+                System.out.print("Loai CPU (1-loai Alpha, 2- loai Beta, 3 - Gamma): ");
+                loaiCPU = sc.nextInt();
+                System.out.print("Nhap ma CPU: ");
+                sc.nextLine();
+                ma = sc.nextLine();
+                gia = 400;
+                soCore = 4;
+                xungNhip = "2.46 GHz";
+                hang = "Black";
+                break;
+            case 3:
+                System.out.println("Loai CPU: Gamma");
+                System.out.print("Nhap ma CPU: ");
+                ma = sc.nextLine();
+                loaiCPU = 3;
+                gia = 600;
+                soCore = 4;
+                xungNhip = "2.6 GHz";
+                hang = "White";
+                break;
+            default:
+        }
+        
+    }
+
+    public void xuat() {
+        switch(loaiCPU) {
+            case 1:
+                System.out.print("Loai CPU Alpha ");
+                break;
+            case 2:
+                System.out.print("Loai CPU Beta ");
+                break;
+            case 3:
+                System.out.print("Loai CPU Gamma ");
+                break;
+        }
+        System.out.println("Hang " + hang + " So Core: " + soCore + " Xung nhip " + xungNhip + " Gia nhap " + gia);
     }
 }
