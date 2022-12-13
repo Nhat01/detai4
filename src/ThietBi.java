@@ -1,6 +1,5 @@
 public class ThietBi {
     protected String ma,hang;
-    protected int dong;
     protected double gia;
     public String getMa() {
         return ma;
@@ -13,12 +12,6 @@ public class ThietBi {
     }
     public void setHang(String hang) {
         this.hang = hang;
-    }
-    public int getDong() {
-        return dong;
-    }
-    public void setDong(int dong) {
-        this.dong = dong;
     }
     public double getGia() {
         return gia;

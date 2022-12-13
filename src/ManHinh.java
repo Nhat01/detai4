@@ -97,4 +97,27 @@ public class ManHinh extends ThietBi{
                 break;
         }
     }
+    @Override
+    public String toString() {
+        String _doPhanGiai = "",_chongLoa = "";
+        switch(doPhanGiai) {
+            case 1:
+                _doPhanGiai = "HD";
+                break;
+            case 2:
+                _doPhanGiai = "FHD";
+                break;
+        }
+        switch(chongLoa) {
+            case 0:
+                _chongLoa = "Khong";
+                break;
+            case 1:
+                _chongLoa = "Co";
+                break;
+        }
+        return "ManHinh: <Ma man hinh=" + ma + "> <Hang san xuat=" + hang + "> <Do phan giai=" + _doPhanGiai + "> <Gia Nhao=" + gia + "> <Chong Loa=" + _chongLoa + ">";
+    }
+
+    
 }

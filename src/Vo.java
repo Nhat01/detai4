@@ -98,4 +98,31 @@ public class Vo extends ThietBi{
         }
         System.out.println(" Gia " + gia);
     }
+
+    @Override
+    public String toString() {
+        String _loaiVo= "", _mauVo = "";
+        switch(loaiVo) {
+            case 1:
+                _loaiVo = "Nhom";
+                break;
+            case 2:
+                _loaiVo = "Nhua";
+                break;
+        }
+        switch(mauVo) {
+            case 1:
+                _mauVo = "Do";
+                break;
+            case 2:
+                _mauVo = "Den";
+                break;
+            case 3:
+                _mauVo = "Xanh";
+                break;
+        }
+        return "Vo: <Ma vo=" + ma + "> <loaiVo=" + _loaiVo + "> <Hang=" + hang + "> <Mau sac=" + _mauVo +"> <Gia Nhap=" + gia + ">\n";
+    }
+
+    
 }

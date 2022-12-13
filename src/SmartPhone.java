@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class SmartPhone extends ThietBi {
+    private int dong;
     CPU cpu = new CPU();
     Vo vo = new Vo();
     ManHinh mh = new ManHinh();
@@ -9,12 +10,6 @@ public class SmartPhone extends ThietBi {
 
     SmartPhone() {
 
-    }
-    SmartPhone(int dong) {
-        this.dong = dong;
-        cpu.dong = dong;
-        vo.dong = dong;
-        mh.dong = dong;
     }
     
     SmartPhone(String maSmartPhone, int dong, CPU cpu, ManHinh mh, Vo vo) {
@@ -25,14 +20,11 @@ public class SmartPhone extends ThietBi {
         this.mh = mh;
     }
 
-    public void xuat() {
-        System.out.println("SmartPhone: " + ma + " Dong " + dong + " Gia " + gia);
-        System.out.print("CPU: ");
-        cpu.xuat();
-        System.out.print("Man Hinh: ");
-        mh.xuat();
-        System.out.print("Vo: ");
-        vo.xuat();
+    public int getDong() {
+        return dong;
+    }
+    public void setDong(int dong) {
+        this.dong = dong;
     }
 
     public void nhap() {
@@ -44,6 +36,9 @@ public class SmartPhone extends ThietBi {
         cpu.nhap(dong);
         mh.nhap(dong);
         vo.nhap(dong);
+    }
+
+    public double tinhGia() {
         switch(dong) {
             case 1:
                 gia = (cpu.getGia() + mh.getGia() + vo.getGia()) * 1.3;
@@ -55,5 +50,36 @@ public class SmartPhone extends ThietBi {
                 gia = (cpu.getGia() + mh.getGia() + vo.getGia()) * 1.8;
                 break;
         }
+        return gia;
     }
+
+    public void xuat() {
+        System.out.println("SmartPhone: " + ma + " Dong " + dong + " Gia " + this.tinhGia());
+        System.out.print("CPU: ");
+        cpu.xuat();
+        System.out.print("Man Hinh: ");
+        mh.xuat();
+        System.out.print("Vo: ");
+        vo.xuat();
+    }
+
+    @Override
+    public String toString() {
+        String _dong = "";
+        switch (dong) {
+            case 1: 
+                _dong = "Venus"; 
+                break;
+            case 2: 
+                _dong = "Mars"; 
+                break;
+            case 3: 
+                _dong = "Jupiter"; 
+                break;
+        }
+        return "SmartPhone: <Ma smartphone=" + ma + ">" + " " + "<Dong smartphone=" + _dong + ">" + " " + "<Gia nhap=" + this.tinhGia() + ">\n" + cpu.toString()
+        + "\n" +  mh.toString() + "\n" + vo.toString();
+    }
+
+    
 }

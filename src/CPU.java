@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
 public class CPU extends ThietBi {
-    protected String xungNhip,hang; 
-    protected int soCore,loaiCPU;
+    private String xungNhip,hang; 
+    private int soCore,loaiCPU;
 
     Scanner sc = new Scanner(System.in);
     
@@ -109,4 +109,23 @@ public class CPU extends ThietBi {
         }
         System.out.println("Hang " + hang + " So Core: " + soCore + " Xung nhip " + xungNhip + " Gia nhap " + gia);
     }
+
+    @Override
+    public String toString() {
+        String _loaiCPU = "";
+        switch(loaiCPU) {
+            case 1:
+                _loaiCPU = "Alpha";
+                break;
+            case 2:
+                _loaiCPU = "Beta";
+                break;
+            case 3:
+                _loaiCPU = "Gamma";
+                break;
+        }
+        return "CPU: <Ma CPU=" + ma + "> <Loai CPU=" + _loaiCPU + ">" + " <hang=" + hang + "> <So Score=" + soCore + "> <Xung nhip=" + xungNhip + "> <Gia nhap=" + gia + ">";
+    }
+
+    
 }
